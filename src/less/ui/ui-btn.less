@@ -1,0 +1,118 @@
+.ui-btn{
+    display: block;
+
+    appearance: none;
+    background:#FFF;
+    border: 2px solid #EEE;
+    border-radius: 10px;
+    box-shadow: 0 2px 0 0 #EEE; 
+    color:#444;
+    padding: 16px;
+    line-height: 16px;
+    text-align: center;
+    font-weight: bold;
+    min-width: 180px;
+
+    cursor: pointer;
+
+    transition: 
+    background 0.1s ease,
+    color 0.1s ease,
+    border-color 0.1s ease,
+    filter 0.1s ease;
+
+    --box-shadow-y: 2px;
+    --box-shadow-color: #EEE;
+    box-shadow: 0 var(--box-shadow-y) 0 0 var(--box-shadow-color);
+    &.aqua{
+        border-color: var(--selected-color);
+        color:var(--selected-color);
+        background: var(--selected-bg-color);
+    }
+    &.blue{
+        border-color: #1cb0f6;
+        background: #1cb0f6;
+        color:#FFF;
+        --box-shadow-y: 4px;
+        --box-shadow-color: #1899d6;
+        &:hover{
+            filter: brightness(1.1);
+        }
+    }
+    &.green{
+        border-color: var(--completed-color);
+        color:var(--completed-color);
+        background: var(--completed-bg-color);
+    }
+    &.big{
+        width: 140px;
+        height: 140px;
+        min-width: 140px;
+        border-radius: 30px;
+        font-size: 24px;
+        &:active{
+            transform: translateY(4px);
+        }
+    }
+    &.min{
+        min-width: 100px;
+        padding: 14px;
+    }
+    &[data-selected=true]{
+        border-color: var(--selected-color);
+        color:var(--selected-color);
+        background: var(--selected-bg-color);
+    }
+
+    &[data-completed=true]{
+        border-color: var(--completed-color);
+        color:var(--completed-color);
+        background: var(--completed-bg-color);
+        pointer-events: none;
+    }
+
+    &[data-error=true]{
+        border-color: var(--error-color);
+        color:var(--error-color);
+        background: var(--error-bg-color);
+        pointer-events: none;
+    }
+
+    position: relative;
+
+    &:before{
+        content: '';
+        position: absolute;
+        top: -4px;
+        left:0;
+        right:0;
+        // background:green;
+    }
+    &.grey{
+        color: #666;
+    }
+
+    &:disabled{
+        background:#EEE;
+        border-color: #EEE;
+        --box-shadow-color:#f8f8f8;
+
+        color: #666;
+        pointer-events: none;
+    }
+
+    &:active{
+        &:before{
+            height: 4px;
+        }
+        transform: translateY(2px);
+        box-shadow: 0 0 0 0 var(--box-shadow-color);
+        transition: 
+        transform 0.1s ease,
+        box-shadow 0.1s ease,
+        background 0.1s ease,
+        color 0.1s ease,
+        border-color 0.1s ease,
+        filter 0.1s ease;
+    }
+}

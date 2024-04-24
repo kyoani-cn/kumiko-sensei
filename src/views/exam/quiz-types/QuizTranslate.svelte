@@ -24,9 +24,7 @@
             isCorrect ? 'success' : 'error'
         );
         
-        setTimeout(() => {
-            over(isCorrect);
-        }, 1000);
+        over(isCorrect);
         
     }
 
@@ -44,19 +42,28 @@
 
 {#if quiz}
 <div class="quiz-box">
-    <h3>听读音选翻译</h3>
-    <button class="play-vocal" on:click={playVocal}>播放语音</button>
-    <div class="ui-selects">
-        {#each quiz.cns as cn, index}
-        <button class="item" 
-            on:click={()=>selectIndex(index)} 
-            data-index={index}
-            data-selected={currentSelectIndex === index}>
-            {cn}
-        </button>
-        {/each}
+    <div class="layout quiz-middle-box">
+        <div class="quiz-middle-content-box">
+            <h1>听读音选翻译</h1>
+            <div class="quiz-two-box">
+                <button class="ui-play-vocal" on:click={playVocal}>播放语音</button>
+                <div class="ui-selects">
+                    {#each quiz.cns as cn, index}
+                    <div class="option-item" 
+                        on:click={()=>selectIndex(index)} 
+                        data-index={index}
+                        data-selected={currentSelectIndex === index}>
+                        {cn}
+                    </div>
+                    {/each}
+                </div>
+            </div>
+        </div>
     </div>
-    <button on:click={check} disabled={currentSelectIndex === null}>检查</button>
-    <button on:click={over}>over</button>
+    <div class="layout quiz-foot-box">
+        <button class="ui-btn min grey" on:click={()=>dispatch('skip')}>跳过</button>
+        <button class="ui-btn min green" on:click={check} disabled={currentSelectIndex === null}>检查</button>
+        <!-- <button class="ui-btn min green" on:click={over}>over</button> -->
+    </div>
 </div>
 {/if}

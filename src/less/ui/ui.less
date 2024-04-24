@@ -1,11 +1,32 @@
-@import 'ui-toast.less';
 
+html{
+    --selected-color: #00c3ff;
+    --selected-bg-color: #dbf2ff;
 
+    --completed-color:#5cc946;
+    --completed-bg-color: #dbffe4;
 
-.ui-selects{
-    & > .item{
-        &[data-selected=true]{
-            background-color: #f00;
-        }
-    }
+    --error-color:#c44743;
+    --error-bg-color: #ffe3db;
 }
+
+@import 'ui-toast.less';
+@import 'ui-selects.less';
+@import 'ui-btn.less';
+
+
+.layout{
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+
+.ui-play-vocal{
+    .ui-btn();
+    .ui-btn.blue();
+    .ui-btn.big();
+}
+
+
+@import 'quiz.less';
+@import 'exam.less';

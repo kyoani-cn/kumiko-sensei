@@ -16,4 +16,3 @@ export const stopAudio = () => {
     audio.pause();
     audio.currentTime = 0;
 }
-

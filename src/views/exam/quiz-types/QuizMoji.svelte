@@ -24,9 +24,7 @@
             isCorrect ? 'success' : 'error'
         );
         
-        setTimeout(() => {
-            over(isCorrect);
-        }, 1000);
+        over(isCorrect);
         
     }
 
@@ -40,19 +38,25 @@
 </script>
 {#if quiz}
 <div class="quiz-box">
-    <h3>看中文选读音</h3>
-    <h3>{quiz.cn}</h3>
-    <div class="ui-selects">
-        {#each quiz.vocals as vocal, index}
-        <button class="item" 
-            on:click={()=>select(vocal,index)} 
-            data-index={index}
-            data-selected={currentSelectIndex === index}>
-            {vocal.jp}
-        </button>
-        {/each}
+    <div class="layout quiz-middle-box">
+        <div class="quiz-middle-content-box">
+            <h1>选 “{quiz.cn}” 对应的读音</h1>
+            <div class="ui-selects">
+                {#each quiz.vocals as vocal, index}
+                <div class="option-item" 
+                    on:click={()=>select(vocal,index)} 
+                    data-index={index}
+                    data-selected={currentSelectIndex === index}>
+                    {vocal.jp}
+                </div>
+                {/each}
+            </div>
+        </div>
     </div>
-    <button on:click={check} disabled={currentSelectIndex === null}>检查</button>
-    <button on:click={over}>over</button>
+    <div class="layout quiz-foot-box">
+        <button class="ui-btn min grey" on:click={()=>dispatch('skip')}>跳过</button>
+        <button class="ui-btn min green" on:click={check} disabled={currentSelectIndex === null}>检查</button>
+        <!-- <button class="ui-btn min green" on:click={over}>over</button> -->
+    </div>
 </div>
 {/if}

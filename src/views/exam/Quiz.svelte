@@ -15,16 +15,20 @@
     const over = (v) => {
         dispatch('over',v);
     }
+
+    const skip = ()=>{
+        dispatch('skip');
+    }
 </script>
 
 {#if quiz}
     {#if quizType === "aloud"}
-        <QuizAloud {quiz} on:over={over} />
+        <QuizAloud {quiz} on:over={over} on:skip={skip} />
     {:else if quizType === "match"}
-        <QuizMatch {quiz} on:over={over} />
+        <QuizMatch {quiz} on:over={over} on:skip={skip} />
     {:else if quizType === "moji"}
-        <QuizMoji {quiz} on:over={over} />
+        <QuizMoji {quiz} on:over={over} on:skip={skip} />
     {:else if quizType === "translate"}
-        <QuizTranslate {quiz} on:over={over} />
+        <QuizTranslate {quiz} on:over={over} on:skip={skip} />
     {/if}
 {/if}
