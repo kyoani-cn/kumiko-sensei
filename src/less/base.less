@@ -1,0 +1,63 @@
+html {
+	font-family: Inter, system-ui, Avenir, "SF Pro SC", "SF Pro Text", "SF Pro Icons", "PingFang SC", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+	font-weight: 400;
+
+	background:#FFF;
+	color: #37383a;
+
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+a {
+	font-weight: 500;
+	color: #646cff;
+	text-decoration: inherit;
+}
+
+body {
+	margin: 0;
+	min-width: 320px;
+	min-height: 100vh;
+}
+
+h1 {
+	font-size: 32px;
+	line-height: 46px;
+	margin: 0;
+}
+h2{
+	margin: 0;
+}
+h3{
+	margin: 0;
+}
+p{
+	margin: 0;
+}
+
+@media (max-width:768px){
+	h1 {
+		font-size: 24px;
+		line-height: 30px;
+	}
+}
+.card {
+	padding: 2em;
+}
+
+[data-loading="true"]{
+	cursor: wait;
+	& > *{
+		pointer-events: none;
+	}
+}
+
+
+
+input,button{
+	font: inherit;
+}

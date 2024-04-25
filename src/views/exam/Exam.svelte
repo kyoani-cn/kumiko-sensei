@@ -3,14 +3,15 @@ import { createExam } from '../../functions/api.mjs'
 import Quiz from './Quiz.svelte';
 import { stopAudio } from '../../functions/audio.mjs'
 import { playAdari } from '../../functions/ena.mjs'
+import ExamResult from './ExamResult.svelte';
+    import Progress from '../../components/Progress.svelte';
 let exam = null;
-let loading = false;
-let status = 'loading';
+let status = 'hello';
 let results = [];
 const startExam = async () => {
-    loading = true;
+    status = 'loading';
     exam = await createExam();
-    loading = false;
+    status = 'loading';
     currentQuizIndex = 0;
     status = 'exam';
     results = [];
@@ -25,8 +26,7 @@ $: currentQuiz = (()=> {
 
 let currentQuizIndex = -1;
 
-
-startExam();
+$: progress = status ==='result' ? 1 : currentQuizIndex / 10;
 
 
 const examOver = () => {
@@ -45,14 +45,7 @@ const nextQuiz = () => {
 }
 
 let score = 0;
-$: resultTitle = (() => {
-    if(score === 10) return '当之无愧的京吹大师！';
-    if(score >= 8) return '京吹上手！';
-    if(score >= 6) return '还行吧。';
-    if(score >= 4) return '京吹初心者。';
-    if(score >= 2) return '京吹小白。';
-    return '八嘎！';
-})();
+
 
 const scoreAdd = (n) => {
     score += n;
@@ -82,42 +75,44 @@ const skip = ()=>{
 
 </script>
 
-<div class="exam-box" data-loading={ loading }>
+<div class="exam-box" data-loading={ status === 'loading' }>
     <div class="layout exam-head">
-        <a href="#/">首页</a>
-        <span>{score} 分</span>
+        <div style="width: 2em;padding: 0 0 0 1em;">
+            <a href="#/">退出</a>
+        </div>
+        <Progress progress={progress} />
+        <div style="width: 3em;">
+            <b>{score}</b>
+            分
+        </div>
     </div>
     <!-- <h1>考试</h1> -->
+    {#if status === 'hello'}
+    <div class="layout">
+        <div class="start-box">
+            <button class="ui-btn blue" on:click={startExam}>开始一局测试</button>
+        </div>
+    </div>
+    {:else if status === 'loading'}
+    <div class="layout">
+        <div class="loading-box">
+            <h1>加载中…</h1>
+        </div>
+    </div>
+    {:else if status === 'exam'}
     {#if exam}
     <div>
-        {#if status === 'exam'}
         <div class="exam">
             <Quiz quiz={currentQuiz} on:over={handleQuizOver} on:skip={skip} />
-            <!-- <h2>{exam.kid}</h2>
-            <p>
-                共
-                {exam.quizs.length}
-                题
-            </p> -->
-            <!-- <div>
-                <h3>当前题目</h3>
-                <pre>{ JSON.stringify(currentQuiz,null,'\t') }</pre>
-            </div>
-            -->
             <!-- {#each exam.quizs as quiz, index}
             <Quiz {quiz} on:over={handleQuizOver} on:skip={skip} />
             {/each} -->
         </div>
-        {:else if status === 'result'}
-        <div class="result layout">
-            <h1>{resultTitle}</h1>
-            <p>共{exam.quizs.length}题，正确率 {results.filter(v=>v).length / 10 * 100}%</p>
-        </div>  
-        {/if}
     </div>
+    {/if}
+    {:else if status === 'result'}
+    <ExamResult score={score} results={results} exam={exam}/>
     {:else}
-    <div class="start-box">
-        <button class="ui-btn min grey" on:click={startExam}>开始测试</button>
-    </div>
+
     {/if}
 </div>

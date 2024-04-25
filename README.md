@@ -5,10 +5,15 @@
 未上线
 
 ## 成员
-角色语音整理获取：炭炭
-程序：toto
+ - 炭炭 - 角色语音整理获取
+ - toto - 程序
+
+## 使用了
+ - 第一期语音翻译参考 诸神字幕组
+ - 第二期字幕翻译参考 未定
 
 ## 方案
-
-API：Express
-前端：Svelte + Vite 
+ - QAAC
+ - Express
+ - Svelte
+ - Vite 

@@ -1,0 +1,31 @@
+.ui-app{
+    text-align: center;
+    display: inline-block;
+    color: #222;
+    .ui-icon{
+        transition: transform 0.3s ease;
+    }
+    .title{
+        font-size: 24px;
+        line-height: 30px;
+        padding: 10px 0;
+        font-weight: 400;
+        margin: 0;
+    }
+
+
+    &:hover{
+        .ui-icon{
+            transform: scale(1.01);
+        }
+    }
+    &:active{
+        .ui-icon{
+            transform: scale(0.98);
+        }
+    }
+}
+
+.ui-app-list{
+    text-align: center;
+}

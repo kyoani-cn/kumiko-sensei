@@ -179,6 +179,6 @@ const randLength5ArrayIndexesHitMax1 = [
 
 
 export const randLength5Array = (arr)=>{
-    const indexes = getOne(randLength5ArrayIndexesHitMax1);
+    const indexes = getOne(randLength5ArrayIndexes);
     return indexes.map(i=>arr[i]);
 }

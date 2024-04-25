@@ -7,11 +7,17 @@
     border-radius: 10px;
     box-shadow: 0 2px 0 0 #EEE; 
     color:#444;
-    padding: 16px;
-    line-height: 16px;
     text-align: center;
     font-weight: bold;
+
+    padding: 16px;
+    line-height: 16px;
     min-width: 180px;
+
+    @media (max-width: 768px) {
+        padding: 12px;
+        line-height: 16px;
+    }
 
     cursor: pointer;
 
@@ -44,19 +50,30 @@
         color:var(--completed-color);
         background: var(--completed-bg-color);
     }
+
     &.big{
-        width: 140px;
-        height: 140px;
-        min-width: 140px;
+        --app-big-size: 140px;
+        width: var(--app-big-size);
+        height: var(--app-big-size);
+        min-width: var(--app-big-size);
         border-radius: 30px;
         font-size: 24px;
+        padding: 0 10px;
         &:active{
             transform: translateY(4px);
+        }
+        @media (max-width: 768px){
+            --app-big-size: 100px;
+            border-radius: 20px;
+            font-size: 18px;
         }
     }
     &.min{
         min-width: 100px;
         padding: 14px;
+    }
+    &.inline{
+        display: inline-block;
     }
     &[data-selected=true]{
         border-color: var(--selected-color);

@@ -3,6 +3,7 @@
     import { playAudioByVid } from "../../../functions/audio.mjs";
     import { showToast } from "../../../functions/toast.mjs";
     import { randLength5Array } from "../../../functions/rand.function.mjs";
+    import QuizFoot from "./components/QuizFoot.svelte";
     export let quiz = null;
 
     const dispatch = createEventDispatcher();
@@ -79,7 +80,7 @@
 
 {#if quiz}
 <div class="quiz-box">
-    <div class="layout quiz-middle-box">
+    <div class="layout ui-middle-box">
         <div class="quiz-middle-content-box">
             <h1>匹配中文和读音</h1>
             <div class="texts-vocals-box">
@@ -107,24 +108,33 @@
         </div>
     </div>
     <!-- <pre>{JSON.stringify(completedIndexes)}</pre> -->
-    <div class="layout quiz-foot-box">
+    <QuizFoot>
         <button class="ui-btn min grey" on:click={()=>dispatch('skip')}>跳过</button>
         <!-- <button class="ui-btn min green" on:click={over}>over</button> -->
-    </div>
+    </QuizFoot>
 </div>
 {/if}
 
 <style lang="less">
     .texts-vocals-box{
+        display: flex;
         &:after{
             content: '';
             display: block;
             clear: both;
         }
-        .ui-selects{
-            float: left;
-            width: 240px;
-            margin-right: -8px;
+    }
+    @media (max-width: 768px) {
+        .texts-vocals-box{
+            .ui-selects{
+                margin: 0;
+                width: 50%;
+                .option-item{
+                    margin:10px 4px;
+                    width: calc(50vw - 36px);
+                    box-sizing: border-box;
+                }
+            }
         }
     }
 </style>

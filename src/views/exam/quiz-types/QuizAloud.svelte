@@ -4,6 +4,7 @@
 
     import { playAudioByVid } from '../../../functions/audio.mjs'
     import { showToast } from '../../../functions/toast.mjs'
+    import QuizFoot from './components/QuizFoot.svelte'
     const dispatch = createEventDispatcher();
     
     const over = (v) => {
@@ -40,7 +41,7 @@
 </script>
 {#if quiz}
 <div class="quiz-box">
-    <div class="layout quiz-middle-box">
+    <div class="layout ui-middle-box">
         <div class="quiz-middle-content-box">
             <h1>听读音选日文</h1>
             <div class="quiz-two-box">
@@ -58,10 +59,10 @@
             </div>
         </div>
     </div>
-    <div class="layout quiz-foot-box">
+    <QuizFoot>
         <button class="ui-btn min grey" on:click={()=>dispatch('skip')}>跳过</button>
         <button class="ui-btn min green" on:click={check} disabled={currentSelectIndex === null}>检查</button>
-    </div>
+    </QuizFoot>
     <!-- <button class="ui-btn min green" on:click={over}>over</button> -->
 </div>
 {/if}

@@ -1,0 +1,19 @@
+.ui-icon{
+    --icon-size: 64px;
+    display: inline-block;
+    width: var(--icon-size, 1em);
+    height: var(--icon-size, 1em);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    border-radius: 18px;
+
+    background-image: url(/images/icon.svg);
+
+    box-shadow: 0 10px 25px -10px var(--app-color);
+
+    &.size-128{
+        --icon-size: 128px;
+    }
+}
