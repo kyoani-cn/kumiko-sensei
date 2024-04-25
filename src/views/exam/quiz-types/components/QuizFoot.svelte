@@ -1,6 +1,6 @@
-<div class="quiz-foot-box">
+<div class="ui-foot-box">
     <div class="layout">
-        <div class="quiz-foot-content">
+        <div class="ui-foot-content">
             <slot></slot>
         </div>
     </div>

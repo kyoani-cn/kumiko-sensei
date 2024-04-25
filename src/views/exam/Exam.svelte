@@ -4,10 +4,12 @@ import Quiz from './Quiz.svelte';
 import { stopAudio } from '../../functions/audio.mjs'
 import { playAdari } from '../../functions/ena.mjs'
 import ExamResult from './ExamResult.svelte';
-    import Progress from '../../components/Progress.svelte';
+import Progress from '../../components/Progress.svelte';
+import { getUnixTimestamp } from '../../functions/unix.mjs'
 let exam = null;
 let status = 'hello';
 let results = [];
+let started = null;
 const startExam = async () => {
     status = 'loading';
     exam = await createExam();
@@ -15,6 +17,8 @@ const startExam = async () => {
     currentQuizIndex = 0;
     status = 'exam';
     results = [];
+    started = getUnixTimestamp();
+    ended = null;
 }
 
 
@@ -28,10 +32,23 @@ let currentQuizIndex = -1;
 
 $: progress = status ==='result' ? 1 : currentQuizIndex / 10;
 
+let ended = null;
+let usedMs = 0;
 
+// 考试结束
 const examOver = () => {
-    console.log('考试结束');
+    ended = getUnixTimestamp();
+    usedMs = ended - started;
     status = 'result';
+
+    console.log('考试结束',{
+        exam,
+        score,
+        results,
+        started,
+        ended,
+        usedMs,
+    });
 }
 
 const nextQuiz = () => {
@@ -90,7 +107,7 @@ const skip = ()=>{
     {#if status === 'hello'}
     <div class="layout">
         <div class="start-box">
-            <button class="ui-btn blue" on:click={startExam}>开始一局测试</button>
+            <button class="ui-btn big blue" on:click={startExam}>开始测试</button>
         </div>
     </div>
     {:else if status === 'loading'}
