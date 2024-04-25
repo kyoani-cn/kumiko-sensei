@@ -45,12 +45,12 @@
         <div class="quiz-middle-content-box">
             <h1>听读音选日文</h1>
             <div class="quiz-two-box">
-                <button class="ui-play-vocal" on:click={playVocal}>播放语音</button>
+                <button class="ui-play-vocal" on:click={playVocal} data-key="Space">播放语音</button>
                 <div class="ui-selects">
                     {#each quiz.chioces as chioce, index}
                     <div class="option-item" 
                         on:click={()=>selectIndex(index)} 
-                        data-index={index}
+                        data-key={index+1}
                         data-selected={currentSelectIndex === index}>
                         {chioce}
                     </div>
@@ -61,7 +61,7 @@
     </div>
     <QuizFoot>
         <button class="ui-btn min grey" on:click={()=>dispatch('skip')}>跳过</button>
-        <button class="ui-btn min green" on:click={check} disabled={currentSelectIndex === null}>检查</button>
+        <button class="ui-btn min green" on:click={check} disabled={currentSelectIndex === null} data-key="Enter">检查</button>
     </QuizFoot>
     <!-- <button class="ui-btn min green" on:click={over}>over</button> -->
 </div>

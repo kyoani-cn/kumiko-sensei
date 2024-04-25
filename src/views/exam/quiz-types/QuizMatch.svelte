@@ -88,12 +88,13 @@
             <h1>匹配中文和读音</h1>
             <div class="texts-vocals-box">
                 <div class="ui-selects">
-                    {#each textsIndex as index}
+                    {#each textsIndex as index, i}
                     <div class="option-item"
                         on:click={()=>selectText(index)} 
                         data-selected={index === currentSelectTextIndex}
                         data-completed={completedIndexes.includes(index)}
                         data-error={errorIndexes.includes(index)}
+                        data-key={i+1}
                         >{vocals[index].cn}</div>
                     {/each}
                 </div>
@@ -104,6 +105,7 @@
                         data-selected={index === currentSelectVocalIndex}
                         data-completed={completedIndexes.includes(index)}
                         data-error={errorIndexes.includes(index)}
+                        data-key={index+6}
                         >{vocal.jp}</div>
                     {/each}
                 </div>

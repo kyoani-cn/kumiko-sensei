@@ -46,7 +46,7 @@
                 {#each quiz.vocals as vocal, index}
                 <div class="option-item" 
                     on:click={()=>select(vocal,index)} 
-                    data-index={index}
+                    data-key={index+1}
                     data-selected={currentSelectIndex === index}>
                     {vocal.jp}
                 </div>
@@ -56,7 +56,7 @@
     </div>
     <QuizFoot>
         <button class="ui-btn min grey" on:click={()=>dispatch('skip')}>跳过</button>
-        <button class="ui-btn min green" on:click={check} disabled={currentSelectIndex === null}>检查</button>
+        <button class="ui-btn min green" on:click={check} disabled={currentSelectIndex === null} data-key="Enter">检查</button>
         <!-- <button class="ui-btn min green" on:click={over}>over</button> -->
     </QuizFoot>
 </div>

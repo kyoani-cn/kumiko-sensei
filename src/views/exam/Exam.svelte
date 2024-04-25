@@ -109,7 +109,7 @@ const skip = ()=>{
     {#if status === 'hello'}
     <div class="layout">
         <div class="start-box ui-middle-box">
-            <button class="ui-btn big blue" on:click={startExam}>开始测试</button>
+            <button class="ui-btn big blue" on:click={startExam} data-key="Space">开始测试</button>
         </div>
     </div>
     <QuizFoot>
