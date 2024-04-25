@@ -6,6 +6,8 @@ import { playAdari } from '../../functions/ena.mjs'
 import ExamResult from './ExamResult.svelte';
 import Progress from '../../components/Progress.svelte';
 import { getUnixTimestamp } from '../../functions/unix.mjs'
+    import QuizFoot from './quiz-types/components/QuizFoot.svelte';
+    import GroupLink from '../../components/GroupLink.svelte';
 let exam = null;
 let status = 'hello';
 let results = [];
@@ -94,7 +96,7 @@ const skip = ()=>{
 
 <div class="exam-box" data-loading={ status === 'loading' }>
     <div class="layout exam-head">
-        <div style="width: 2em;padding: 0 0 0 1em;">
+        <div style="width: 3em;text-align: right;">
             <a href="#/">退出</a>
         </div>
         <Progress progress={progress} />
@@ -106,10 +108,20 @@ const skip = ()=>{
     <!-- <h1>考试</h1> -->
     {#if status === 'hello'}
     <div class="layout">
-        <div class="start-box">
+        <div class="start-box ui-middle-box">
             <button class="ui-btn big blue" on:click={startExam}>开始测试</button>
         </div>
     </div>
+    <QuizFoot>
+        <div>
+            久美子语音整理：<span>炭炭</span><br>
+            程序：<span>toto</span>
+        </div>
+        <div style="text-align: right;">
+            反馈群<br>
+            <GroupLink />
+        </div>
+    </QuizFoot>
     {:else if status === 'loading'}
     <div class="layout">
         <div class="loading-box">

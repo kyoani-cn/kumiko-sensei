@@ -46,7 +46,10 @@
         currentSelectTextIndex = null;
         // currentSelectVocalIndex = null;
         if(completedIndexes.length === vocals.length){
-            dispatch('over',true);
+            
+            setTimeout(() => {
+                dispatch('over',true);
+            }, 1000);
         }
 
     }

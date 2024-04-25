@@ -1,7 +1,7 @@
 
 import { fetchJSON } from './fetch.mjs'
 
-import { BASE_API_URL } from '../config.mjs'
+import { BASE_API_URL, BASE_VOCAL_URL } from '../config.mjs'
 
 
 export const U = path => `${BASE_API_URL}${path}`
@@ -13,7 +13,6 @@ export const createExam = async ()=>{
 }
 
 
-
 export const getVocalURLByVid = vid=>{
-    return `https://192.168.31.2:5501/vocals-hex/${vid}.m4a`
+    return `${BASE_VOCAL_URL}${vid}.m4a`
 }
