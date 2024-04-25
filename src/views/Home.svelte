@@ -14,7 +14,7 @@
             </nav>
         </div>
         <div class="ui-middle-box ui-app-list">
-            <a href="#/exam" class="ui-app" style="--app-color: red">
+            <a href="#/exam" class="ui-app" style="--app-color: #E75E44">
                 <div class="ui-icon size-128"></div>
                 <h2 class="title">酷米空</h2>
             </a>
