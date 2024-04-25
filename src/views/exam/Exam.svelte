@@ -66,7 +66,7 @@ const handleQuizOver = (v) => {
     results = [...results,v];
     if(v){
         scoreAdd(1);
-        playAdari();
+        // playAdari();
     }else{
         scoreAdd(-1);
     }
