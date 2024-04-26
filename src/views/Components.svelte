@@ -31,4 +31,7 @@
     <div style="padding: 20px 0;">
         <button class="ui-btn big blue" data-key="Space" data-animation-in="zoomOut" data-animation-in-duration=".8s">开始测试</button>
     </div>
+    <div>
+        <a href="#/">首页</a>
+    </div>
 </div>
