@@ -1,7 +1,12 @@
 html{
     --ui-head-height: 80px;
     --ui-foot-height: 120px;
-    --ui-middle-height: calc( 100dvh - var(--ui-foot-height) - var(--ui-head-height) );
+    --ui-height: 100vh;
+    --ui-height: 100dvh;
+    &[data-os="mac"]{
+        --ui-height: 100vh;
+    }
+    --ui-middle-height: calc( var(--ui-height) - var(--ui-foot-height) - var(--ui-head-height) );
     --app-color: #999;
 }
 @media (max-width:768px){
