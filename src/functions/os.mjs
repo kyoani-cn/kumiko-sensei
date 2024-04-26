@@ -1,4 +1,9 @@
 const { userAgent } = navigator;
+
+export const isIOS = /ipod|iphone|ipad/i.test(userAgent);
+
+export const isMobile = /android|ipod|iphone|ipad/i.test(userAgent);
+
 const userAgentMatch = (function( userAgent ) {
 	userAgent = userAgent.toLowerCase();
 
@@ -10,10 +15,10 @@ const userAgentMatch = (function( userAgent ) {
 				  [];
 
 	const os = /(windows) nt ([\d\.]+)?/    .exec(userAgent) ||
+			 /(ipod|iphone|ipad)/		  .exec(userAgent) ||
 			 /(mac) os ?x? ?([\d_\.]+)?/  .exec(userAgent) ||
 			 /(android) ?([\d\.]+)/       .exec(userAgent) ||
 			 /(linux) ?([\d\.]+)?/        .exec(userAgent) ||
-			 /(ipod|iphone|ipad)/		  .exec(userAgent) ||
 			 [];
 
 	const osVersion = (os[ 2 ]||'').replace(/_/g,'.');
@@ -33,7 +38,3 @@ for(let key in userAgentMatch){
     document.documentElement.setAttribute(`data-${key.replace(/[A-Z]/g,a=>`-${a.toLocaleLowerCase()}`)}`,userAgentMatch[key]);
 }
 
-
-export const isIOS = /ipod|iphone|ipad/i.test(userAgent);
-
-export const isMobile = /android|ipod|iphone|ipad/i.test(userAgent);
