@@ -9,6 +9,7 @@ import { getUnixTimestamp } from '../../functions/unix.mjs'
     import QuizFoot from './quiz-types/components/QuizFoot.svelte';
     import GroupLink from '../../components/GroupLink.svelte';
     import { getOne } from '../../functions/rand.function.mjs';
+    import Score from '../../components/Score.svelte';
 let exam = null;
 let status = 'hello';
 let results = [];
@@ -99,16 +100,13 @@ playAudioByVid(getOne(['7/1965c','f/0c92d']));
 
 </script>
 
-<div class="exam-box" data-loading={ status === 'loading' }>
+<div class="exam-box" data-loading={ status === 'loading' } data-status={status}>
     <div class="layout exam-head">
-        <div style="width: 3em;text-align: right;">
+        <div class="ui-exit-btn" style="width: 3em;text-align: right;">
             <a href="#/">退出</a>
         </div>
         <Progress progress={progress} />
-        <div style="width: 3em;">
-            <b>{score}</b>
-            分
-        </div>
+        <Score score={score} />
     </div>
     <!-- <h1>考试</h1> -->
     {#if status === 'hello'}

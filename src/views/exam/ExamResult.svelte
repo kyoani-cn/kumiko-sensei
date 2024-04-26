@@ -24,7 +24,7 @@ $: resultTitle = (() => {
             <p>获得 {score} 分</p>
         </div>
         <div style="padding: 20px 0 10;">
-            <a href="#/" class="ui-btn">回首页</a>
+            <a href="#/" class="ui-btn" data-key="Enter">回首页</a>
         </div>
     </div>
     <div class="join">

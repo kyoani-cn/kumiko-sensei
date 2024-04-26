@@ -9,4 +9,13 @@
 .exam-box{
     .start-box{
     }
+    .exam-head{
+        transition: opacity 0.3s ease;
+    }
+    &[data-status="result"]{
+        .exam-head{
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
 }
