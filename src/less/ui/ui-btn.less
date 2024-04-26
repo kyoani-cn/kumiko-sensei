@@ -10,7 +10,7 @@
     text-align: center;
     font-weight: bold;
 
-    padding: 16px;
+    padding: 16px 10px;
     line-height: 16px;
     min-width: 180px;
 
@@ -22,6 +22,8 @@
     cursor: pointer;
 
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     transition: 
     background 0.1s ease,
@@ -81,6 +83,7 @@
         border-color: var(--selected-color);
         color:var(--selected-color);
         background: var(--selected-bg-color);
+        --box-shadow-color: var(--selected-color);
     }
 
     &[data-completed=true]{
@@ -99,7 +102,7 @@
 
     position: relative;
 
-    &:before{
+    &:after{
         content: '';
         position: absolute;
         top: -4px;
