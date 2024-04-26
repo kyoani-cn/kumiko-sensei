@@ -14,7 +14,7 @@ blockEl.style.cssText += `position: fixed; z-index: 999; left: 0; top: 0; `+
 const bodyEl = document.body;
 const animationFunction = (el) => {
 	if(!el) return;
-
+	
 
 	// 实际动画元素
 	const animationEl = el.querySelector('[data-animation-el]') || el;
@@ -23,14 +23,14 @@ const animationFunction = (el) => {
 	// console.log(animationEl,rect);
 
 	const animationElCloned = animationEl.cloneNode(true);
-	animationElCloned.style.cssText += `position: absolute; z-index: 1000; left: ${rect.left}px; top: ${rect.top}px; width: ${rect.width}px; height: ${rect.height}px; pointer-events: none;`;
+	animationElCloned.style.cssText += `position: absolute; z-index: 1000; left: ${rect.left}px; top: ${rect.top}px;` + 
+		`width: ${rect.width}px; height: ${rect.height}px; pointer-events: none;`;
 	bodyEl.appendChild(animationElCloned);
 
 	// 隐藏初始元素
 	animationEl.style.visibility = 'hidden';
 
 	requestAnimationFrame(() => {
-		bodyEl.appendChild(blockEl);
 
 
 		const getAttr = el.getAttribute.bind(el);
@@ -96,6 +96,7 @@ const animationFunction = (el) => {
 
 		requestAnimationFrame(() => {
 			animationElCloned.classList.add(animationClassName);
+			bodyEl.appendChild(blockEl);
 		});
 	});
 

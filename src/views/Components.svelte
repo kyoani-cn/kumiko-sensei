@@ -4,9 +4,11 @@
 
 </script>
 <header>
-    <nav>
-        <a href="#/">首页</a>
-    </nav>
+    <div class="layout">
+        <nav>
+            <a href="#/">首页</a>
+        </nav>
+    </div>
 </header>
 <div class="layout">
     <div class="ui-selects">
