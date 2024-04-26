@@ -21,7 +21,7 @@
                     <div class="ui-icon size-128" data-animation-el></div>
                     <h2 class="title">酷米空</h2>
                 </a>
-                <p>京吹人自己的日语学习软件</p>
+                <p class="description">京吹人自己的日语学习软件</p>
             </div>
         </div>
     </div>
