@@ -13,6 +13,18 @@ const KeyCode = {
     "Space": "Space",
     "Enter": "Enter"
 }
+document.addEventListener('keydown', e => {
+    const key = KeyCode[e.code];
+    if(!key) return;
+
+    const firstKeyEl = document.querySelector(`[data-key="${key}"]`);
+    if(!firstKeyEl) return;
+    
+    if(firstKeyEl.disabled) return;
+
+    firstKeyEl.classList.add('active');
+
+})
 document.addEventListener('keyup', e => {
     const key = KeyCode[e.code];
     if(!key) return;
@@ -23,6 +35,9 @@ document.addEventListener('keyup', e => {
     if(!firstKeyEl) return;
 
     if(firstKeyEl.disabled) return;
+
+    
+    firstKeyEl.classList.remove('active');
 
     firstKeyEl.click();
     e.preventDefault();

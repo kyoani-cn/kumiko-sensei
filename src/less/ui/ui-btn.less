@@ -63,7 +63,8 @@
         border-radius: 30px;
         font-size: 24px;
         padding: 0 4px;
-        &:active{
+        &:active,
+        &.active{
             transform: translateY(4px);
         }
         @media (max-width: 768px){
@@ -125,7 +126,8 @@
         pointer-events: none;
     }
 
-    &:active{
+    &:active,
+    &.active{
         &:before{
             height: 4px;
         }
