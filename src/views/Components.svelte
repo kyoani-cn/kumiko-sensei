@@ -3,6 +3,11 @@
 
 
 </script>
+<header>
+    <nav>
+        <a href="#/">首页</a>
+    </nav>
+</header>
 <div class="layout">
     <div class="ui-selects">
         <div class="option-item">选项1</div>
@@ -15,7 +20,7 @@
         <button class="ui-btn min grey" on:click={()=>showToast('提示','error')}>showToast error</button>
     </div>
     <div style="padding: 20px 0;">
-        <div class="ui-app" data-animation-in="zoomOut10" style="--app-color: #E75E44;">
+        <div class="ui-app" data-animation-in="zoomOut10" data-animation-in-shadow="#app" style="--app-color: #E75E44;">
             <div class="ui-icon size-128" data-animation-el></div> 
             <h2 class="title">酷米空</h2>
         </div>
@@ -30,8 +35,5 @@
     </div>
     <div style="padding: 20px 0;">
         <button class="ui-btn big blue" data-key="Space" data-animation-in="zoomOut" data-animation-in-duration=".8s">开始测试</button>
-    </div>
-    <div>
-        <a href="#/">首页</a>
     </div>
 </div>

@@ -14,7 +14,9 @@
             </nav>
         </div>
         <div class="ui-middle-box ui-app-list">
-            <a href="#/exam" class="ui-app" style="--app-color: #E75E44" data-animation-in="zoomOut10">
+            <a href="#/exam" class="ui-app" style="--app-color: #E75E44" 
+                data-animation-in="zoomOut10"
+                data-animation-in-shadow="#app">
                 <div class="ui-icon size-128" data-animation-el></div>
                 <h2 class="title">酷米空</h2>
             </a>
