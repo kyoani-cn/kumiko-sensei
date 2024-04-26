@@ -1,0 +1,51 @@
+@keyframes zoomOut {
+	0% {
+		opacity: 1;
+	}
+	20% {
+		opacity: 1;
+	}
+	50%{
+		opacity: 0.8;
+		transform: scale3d(2, 2, 2) rotateX(15deg) perspective(500px);
+	}
+	100% {
+		opacity: 0;
+		transform: scale3d(5, 5, 5);
+	}
+}
+
+.zoomOut {
+	// perspective: 500;
+	animation: zoomOut 1.4s ease;
+}
+
+@keyframes zoomIn {
+	0% {
+		opacity: 0;
+		transform: scale3d(0.3, 0.3, 0.3);
+	}
+	40% {
+		opacity: 1;
+	}
+}
+.fadeHide{
+	opacity: 0;
+	transform: scale(.9) translateY(30px);
+}
+@keyframes fadeIn {
+	0% {
+		.fadeHide();
+	}
+}
+.fadeIn {
+	animation: fadeIn 0.3s ease;
+}
+@keyframes fadeOut {
+	100% {
+		.fadeHide();
+	}
+}
+.fadeOut {
+	animation: fadeOut 0.3s ease;
+}

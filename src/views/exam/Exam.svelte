@@ -109,7 +109,7 @@ const skip = ()=>{
     {#if status === 'hello'}
     <div class="layout">
         <div class="start-box ui-middle-box">
-            <button class="ui-btn big blue" on:click={startExam} data-key="Space">开始测试</button>
+            <button class="ui-btn big blue" on:click={startExam} data-key="Space" data-animation-in="zoomOut" data-animation-in-duration=".5s">开始测试</button>
         </div>
     </div>
     <QuizFoot>
@@ -124,7 +124,7 @@ const skip = ()=>{
     </QuizFoot>
     {:else if status === 'loading'}
     <div class="layout">
-        <div class="loading-box">
+        <div class="ui-middle-box">
             <h1>加载中…</h1>
         </div>
     </div>
