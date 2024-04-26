@@ -148,7 +148,6 @@ playAudioByVid(getOne(['7/1965c','f/0c92d']));
     {/if}
     {:else if status === 'result'}
     <ExamResult score={score} results={results} exam={exam}/>
-    {:else}
-
+    <!-- {:else} -->
     {/if}
 </div>

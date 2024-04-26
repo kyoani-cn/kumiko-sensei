@@ -9,7 +9,7 @@ const KeyCode = {
     "Digit7": "7",
     "Digit8": "8",
     "Digit9": "9",
-    "Digit0": "10",
+    "Digit0": "0",
     "Space": "Space",
     "Enter": "Enter"
 }

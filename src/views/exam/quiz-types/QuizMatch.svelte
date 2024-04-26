@@ -105,7 +105,7 @@
                         data-selected={index === currentSelectVocalIndex}
                         data-completed={completedIndexes.includes(index)}
                         data-error={errorIndexes.includes(index)}
-                        data-key={index+6}
+                        data-key={(index+6)%10}
                         >{vocal.jp}</div>
                     {/each}
                 </div>
