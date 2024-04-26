@@ -24,6 +24,7 @@
                 </a>
                 <p class="description">京吹人自己的日语学习软件</p>
             </div>
+            <div class="tip">软件内有角色语音，启动前请确认环境和场合</div>
         </div>
     </div>
     <QuizFoot>

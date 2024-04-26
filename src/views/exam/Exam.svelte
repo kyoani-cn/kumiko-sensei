@@ -118,14 +118,14 @@ playAudioByVid(getOne(['7/1965c','f/0c92d']));
         </div>
     </div>
     <QuizFoot>
-        <div>
+        <div style="font-size: 12px;">
             久美子语音整理：<span>炭炭</span><br>
             程序：<span>toto</span>
         </div>
-        <div style="text-align: right;">
+        <!-- <div style="text-align: right;font-size: 12px;">
             反馈群<br>
             <GroupLink />
-        </div>
+        </div> -->
     </QuizFoot>
     {:else if status === 'loading'}
     <div class="layout">
