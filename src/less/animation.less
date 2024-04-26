@@ -1,4 +1,27 @@
-@keyframes zoomOut {
+@keyframes zoomOut10 {
+	0% {
+		opacity: 1;
+	}
+	20% {
+		opacity: 1;
+	}
+	50%{
+		opacity: 0.9;
+		transform: scale3d(3, 3, 3) rotateX(15deg);
+	}
+	100% {
+		opacity: 0;
+		transform: scale3d(10, 10, 10) rotateX(0);
+	}
+}
+
+.zoomOut10 {
+	perspective: 500px;
+	animation: zoomOut10 1.4s ease;
+}
+
+
+@keyframes zoomOut5 {
 	0% {
 		opacity: 1;
 	}
@@ -7,7 +30,7 @@
 	}
 	50%{
 		opacity: 0.8;
-		transform: scale3d(2, 2, 2) rotateX(15deg) perspective(500px);
+		transform: scale3d(2, 2, 2) rotateX(15deg);
 	}
 	100% {
 		opacity: 0;
@@ -15,10 +38,38 @@
 	}
 }
 
+.zoomOut5 {
+	perspective: 500px;
+	animation: zoomOut5 1.4s ease;
+}
+
+
+
+
+@keyframes zoomOut {
+	0% {
+		opacity: 1;
+	}
+	20% {
+		opacity: 1;
+	}
+	50%{
+		opacity: 0.9;
+		transform: scale3d(1.4, 1.4, 1.4) rotateX(15deg);
+	}
+	100% {
+		opacity: 0;
+		transform: scale3d(4, 4, 4);
+	}
+}
 .zoomOut {
-	// perspective: 500;
+	perspective: 500px;
 	animation: zoomOut 1.4s ease;
 }
+
+
+
+
 
 @keyframes zoomIn {
 	0% {
@@ -29,10 +80,12 @@
 		opacity: 1;
 	}
 }
+
 .fadeHide{
 	opacity: 0;
 	transform: scale(.9) translateY(30px);
 }
+
 @keyframes fadeIn {
 	0% {
 		.fadeHide();

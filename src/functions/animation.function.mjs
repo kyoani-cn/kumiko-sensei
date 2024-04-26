@@ -10,8 +10,11 @@ const animationFunction = (el) => {
     animationElCloned.style.cssText += `position: absolute; z-index: 1000; left: ${rect.left}px; top: ${rect.top}px; width: ${rect.width}px; height: ${rect.height}px; pointer-events: none;`;
     document.body.appendChild(animationElCloned);
 
-    const animationClassName = animationEl.getAttribute('data-animation-in') || 'zoomOut';
-    const duration = animationEl.getAttribute('data-animation-in-duration') || '1s';
+    const animationClassName = el.getAttribute('data-animation-in') || 'zoomOut';
+    const duration = el.getAttribute('data-animation-in-duration') || '1s';
+
+    console.log(animationEl, animationClassName, duration, animationEl.getAttribute('data-animation-in'))
+
     animationElCloned.style.animationDuration = duration;
     animationElCloned.addEventListener('animationend', e => {
         // animationEl.classList.remove(animationClassName);
@@ -25,6 +28,7 @@ const animationFunction = (el) => {
 }
 
 document.body.addEventListener('mouseup', e => {
+    if(e.button !== 0) return;
     const el = e.target.closest('[data-animation-in]');
     animationFunction(el);
 });
