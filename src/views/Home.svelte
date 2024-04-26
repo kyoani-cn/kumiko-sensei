@@ -28,11 +28,13 @@
         </div>
     </div>
     <QuizFoot>
-        <div>
+        <div style="font-size: 12px;">
             <a href="https://github.com/kyoani-cn/kumiko-sensei" target="_blank">GitHub</a>
             <span style="margin: 0 2px;color: #AAA;">·</span>
             <GroupLink>开发群</GroupLink>
         </div>
-        <a href="https://lab.magiconch.com/" target="_blank">神奇海螺试验场</a>
+        <div style="font-size: 12px;">
+            <a href="https://lab.magiconch.com/" target="_blank">神奇海螺试验场</a>
+        </div>
     </QuizFoot>
 </div>
