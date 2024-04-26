@@ -35,7 +35,7 @@
             currentSelectTextIndex = null;
             currentSelectVocalIndex = null;
         }else{
-            showToast('回答错误','success');
+            showToast('回答错误','error');
             // errorIndexes.push(currentSelectVocalIndex);
             // errorIndexes = errorIndexes;
             timer = setTimeout(() => {
