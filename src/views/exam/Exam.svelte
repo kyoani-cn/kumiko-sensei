@@ -112,7 +112,7 @@ playAudioByVid(getOne(['7/1965c','f/0c92d']));
     {#if status === 'hello'}
     <div class="layout">
         <div class="start-box ui-middle-box">
-            <button class="ui-btn big blue" on:click={startExam} data-key="Space" 
+            <button class="ui-btn big blue" on:click={startExam} data-key="Enter" 
                 data-animation-in="zoomOut" data-animation-in-duration=".8s"
                 data-animation-in-shadow="#app">开始测试</button>
             <div class="tip">可使用 <b>空格</b> 播放、<b>回车</b> 前进</div>
