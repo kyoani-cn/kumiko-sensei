@@ -8,27 +8,20 @@
     export let quiz = null;
     $: quizType = quiz ? quiz.type : null;
     
-    import { createEventDispatcher } from "svelte";
 
-    const dispatch = createEventDispatcher();
-    
-    const over = (v) => {
-        dispatch('over',v);
-    }
+    export let onOver;
+    export let onSkip;
 
-    const skip = ()=>{
-        dispatch('skip');
-    }
 </script>
 
 {#if quiz}
     {#if quizType === "aloud"}
-        <QuizAloud {quiz} on:over={over} on:skip={skip} />
+        <QuizAloud {quiz} onOver={onOver} onSkip={onSkip} />
     {:else if quizType === "match"}
-        <QuizMatch {quiz} on:over={over} on:skip={skip} />
+        <QuizMatch {quiz} onOver={onOver} onSkip={onSkip} />
     {:else if quizType === "moji"}
-        <QuizMoji {quiz} on:over={over} on:skip={skip} />
+        <QuizMoji {quiz} onOver={onOver} onSkip={onSkip} />
     {:else if quizType === "translate"}
-        <QuizTranslate {quiz} on:over={over} on:skip={skip} />
+        <QuizTranslate {quiz} onOver={onOver} onSkip={onSkip} />
     {/if}
 {/if}

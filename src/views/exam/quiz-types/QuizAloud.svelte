@@ -5,11 +5,9 @@
     import { playAudioByVid } from '../../../functions/audio.mjs'
     import { showToast } from '../../../functions/toast.mjs'
     import QuizFoot from './components/QuizFoot.svelte'
-    const dispatch = createEventDispatcher();
     
-    const over = (v) => {
-        dispatch('over',v);
-    }
+    export let onOver;
+    export let onSkip;
 
     const check = () => {
         if(currentSelectIndex === null) {
@@ -23,7 +21,7 @@
             isCorrect ? 'success' : 'error'
         );
         
-        over(isCorrect);
+        onOver(isCorrect);
         
     }
 
@@ -60,7 +58,7 @@
         </div>
     </div>
     <QuizFoot>
-        <button class="ui-btn min grey" on:click={()=>dispatch('skip')}>跳过</button>
+        <button class="ui-btn min grey" on:click={onSkip}>跳过</button>
         <button class="ui-btn min green" on:click={check} disabled={currentSelectIndex === null} data-key="Enter">检查</button>
     </QuizFoot>
     <!-- <button class="ui-btn min green" on:click={over}>over</button> -->

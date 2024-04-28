@@ -6,8 +6,9 @@
     import QuizFoot from "./components/QuizFoot.svelte";
     export let quiz = null;
 
-    const dispatch = createEventDispatcher();
-    
+    export let onOver;
+    export let onSkip;
+
     let vocals;
     let textsIndex;
     let completedIndexes = [];
@@ -48,7 +49,7 @@
         if(completedIndexes.length === vocals.length){
             
             setTimeout(() => {
-                dispatch('over',true);
+                onOver(true);
             }, 1000);
         }
 
@@ -73,10 +74,6 @@
         currentSelectVocalIndex = index;
         
         checkSelect(index,'vocal');
-    }
-
-    const over = (v) => {
-        dispatch('over',v);
     }
 
 </script>
@@ -114,7 +111,7 @@
     </div>
     <!-- <pre>{JSON.stringify(completedIndexes)}</pre> -->
     <QuizFoot>
-        <button class="ui-btn min grey" on:click={()=>dispatch('skip')}>跳过</button>
+        <button class="ui-btn min grey" on:click={onSkip}>跳过</button>
         <!-- <button class="ui-btn min green" on:click={over}>over</button> -->
     </QuizFoot>
 </div>

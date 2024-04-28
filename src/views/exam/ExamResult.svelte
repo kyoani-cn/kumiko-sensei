@@ -21,6 +21,7 @@ $: resultTitle = (() => {
         <div style="padding: 10px;">
             <h1>{resultTitle}</h1>
             <p>共 {exam.quizs.length} 题，正确率 {results.filter(v=>v).length / 10 * 100}%</p>
+            <p>{JSON.stringify(results)}</p>
             <p>获得 {score} 分</p>
         </div>
         <div style="padding: 20px 0 10;">

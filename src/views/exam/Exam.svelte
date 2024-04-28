@@ -87,7 +87,7 @@ const handleQuizOver = (v) => {
 
 }
 
-const skip = ()=>{
+const onSkip = ()=>{
     nextQuiz();
     
     scoreAdd(-1);
@@ -138,9 +138,9 @@ playAudioByVid(getOne(['7/1965c','f/0c92d']));
     {#if exam}
     <div>
         <div class="exam">
-            <Quiz quiz={currentQuiz} on:over={handleQuizOver} on:skip={skip} />
+            <Quiz quiz={currentQuiz} onOver={handleQuizOver} onSkip={onSkip} />
             <!-- {#each exam.quizs as quiz, index}
-            <Quiz {quiz} on:over={handleQuizOver} on:skip={skip} />
+            <Quiz {quiz} onOver={handleQuizOver} onSkip={onSkip} />
             {/each} -->
         </div>
     </div>
