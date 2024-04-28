@@ -9,6 +9,7 @@
     export let onOver;
     export let onSkip;
 
+    let currentSelectIndex = null;
 
     
     const onCheck = () => {
@@ -22,12 +23,11 @@
         
         onOver(isCorrect);
         
-    }
+    };
 
-    let currentSelectIndex = null;
 
     const select = (vocal,index) => {
-        playAudioByVid(vocal.vid)
+        playAudioByVid(vocal.vid);
         currentSelectIndex = index;
     }
     

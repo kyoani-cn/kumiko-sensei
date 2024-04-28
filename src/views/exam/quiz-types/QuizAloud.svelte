@@ -6,10 +6,10 @@
     
 
     export let quiz = null;
-
-    
     export let onOver;
     export let onSkip;
+    
+    let currentSelectIndex = null;
 
     const onCheck = () => {
         if(currentSelectIndex === null) {
@@ -24,15 +24,9 @@
         
     }
 
-    let currentSelectIndex = null;
 
     const selectIndex = (index) => {
         currentSelectIndex = index;
-    }
-
-    const playVocal = () => {
-        console.log('播放语音');
-        playAudioByVid(quiz.vid)
     }
 
 </script>
@@ -41,7 +35,7 @@
     <QuizMiddle>
         <h1>听读音选日文</h1>
         <div class="quiz-two-box">
-            <button class="ui-play-vocal" on:click={playVocal} data-key="Space">播放语音</button>
+            <button class="ui-play-vocal" on:click={()=>playAudioByVid(quiz.vid)} data-key="Space">播放语音</button>
             <div class="ui-selects">
                 {#each quiz.chioces as chioce, index}
                 <div class="option-item" 

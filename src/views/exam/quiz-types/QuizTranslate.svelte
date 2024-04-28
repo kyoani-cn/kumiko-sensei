@@ -3,10 +3,12 @@
     import QuizFootSkipAndCheck from "./components/QuizFootSkipAndCheck.svelte";
     import QuizMiddle from "./components/QuizMiddle.svelte";
     import { showQuizDualisticToast } from './functions/show-quiz-toast.mjs';
-    export let quiz = null;
 
+    export let quiz = null;
     export let onOver;
     export let onSkip;
+
+    let currentSelectIndex = null;
     
     const onCheck = () => {
         if(currentSelectIndex === null) {
@@ -16,20 +18,12 @@
         const isCorrect = quiz.answer === currentSelectIndex;
     
         showQuizDualisticToast(isCorrect);
-        
         onOver(isCorrect);
         
     }
 
-    let currentSelectIndex = null;
-
     const selectIndex = (index) => {
         currentSelectIndex = index;
-    }
-
-    const playVocal = () => {
-        console.log('播放语音');
-        playAudioByVid(quiz.vid)
     }
 </script>
 
@@ -38,7 +32,7 @@
     <QuizMiddle>
         <h1>听读音选翻译</h1>
         <div class="quiz-two-box">
-            <button class="ui-play-vocal" on:click={playVocal} data-key="Space">播放语音</button>
+            <button class="ui-play-vocal" on:click={()=>playAudioByVid(quiz.vid)} data-key="Space">播放语音</button>
             <div class="ui-selects">
                 {#each quiz.cns as cn, index}
                 <div class="option-item" 

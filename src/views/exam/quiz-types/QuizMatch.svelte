@@ -14,6 +14,9 @@
     let textsIndex;
     let completedIndexes = [];
     let errorIndexes = [];
+    let timer;
+
+
     $: {
         if(quiz){
             vocals = quiz.vocals;
@@ -24,7 +27,6 @@
         }
     }
 
-    let timer;
 
     const checkSelect = (index,type)=>{
         if(currentSelectTextIndex === null) return;
@@ -47,9 +49,11 @@
                 errorIndexes = [];
             }, 1000);
         }
+
         clearTimeout(timer);
         currentSelectTextIndex = null;
         // currentSelectVocalIndex = null;
+        
         if(completedIndexes.length === vocals.length){
             
             setTimeout(() => {
