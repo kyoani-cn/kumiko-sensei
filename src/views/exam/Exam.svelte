@@ -2,14 +2,14 @@
 import { createExam } from '../../functions/api.mjs'
 import Quiz from './Quiz.svelte';
 import { playAudioByVid, stopAudio } from '../../functions/audio.mjs'
-import { playAdari } from '../../functions/ena.mjs'
 import ExamResult from './ExamResult.svelte';
 import Progress from '../../components/Progress.svelte';
 import { getUnixTimestamp } from '../../functions/unix.mjs'
-    import QuizFoot from './quiz-types/components/QuizFoot.svelte';
-    import GroupLink from '../../components/GroupLink.svelte';
-    import { getOne } from '../../functions/rand.function.mjs';
-    import Score from '../../components/Score.svelte';
+import QuizFoot from './quiz-types/components/QuizFoot.svelte';
+import { getOne } from '../../functions/rand.function.mjs';
+import Score from '../../components/Score.svelte';
+
+
 let exam = null;
 let status = 'hello';
 let results = [];

@@ -1,6 +1,7 @@
 <script>
     import { playAudioByVid } from "../../../functions/audio.mjs";
     import QuizFootSkipAndCheck from "./components/QuizFootSkipAndCheck.svelte";
+    import QuizMiddle from "./components/QuizMiddle.svelte";
     import { showQuizDualisticToast } from './functions/show-quiz-toast.mjs';
 
 
@@ -33,21 +34,19 @@
 </script>
 {#if quiz}
 <div class="quiz-box">
-    <div class="layout ui-middle-box">
-        <div class="quiz-middle-content-box">
-            <h1>选 “{quiz.cn}” 对应的读音</h1>
-            <div class="ui-selects">
-                {#each quiz.vocals as vocal, index}
-                <div class="option-item" 
-                    on:click={()=>select(vocal,index)} 
-                    data-key={index+1}
-                    data-selected={currentSelectIndex === index}>
-                    {vocal.jp}
-                </div>
-                {/each}
+    <QuizMiddle>
+        <h1>选 “{quiz.cn}” 对应的读音</h1>
+        <div class="ui-selects">
+            {#each quiz.vocals as vocal, index}
+            <div class="option-item" 
+                on:click={()=>select(vocal,index)} 
+                data-key={index+1}
+                data-selected={currentSelectIndex === index}>
+                {vocal.jp}
             </div>
+            {/each}
         </div>
-    </div>
+    </QuizMiddle>
     <QuizFootSkipAndCheck onSkip={onSkip} onCheck={onCheck} disabledCheck={currentSelectIndex === null} />
 </div>
 {/if}

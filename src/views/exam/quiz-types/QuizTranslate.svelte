@@ -1,6 +1,7 @@
 <script>
     import { playAudioByVid } from "../../../functions/audio.mjs";
     import QuizFootSkipAndCheck from "./components/QuizFootSkipAndCheck.svelte";
+    import QuizMiddle from "./components/QuizMiddle.svelte";
     import { showQuizDualisticToast } from './functions/show-quiz-toast.mjs';
     export let quiz = null;
 
@@ -34,24 +35,22 @@
 
 {#if quiz}
 <div class="quiz-box">
-    <div class="layout ui-middle-box">
-        <div class="quiz-middle-content-box">
-            <h1>听读音选翻译</h1>
-            <div class="quiz-two-box">
-                <button class="ui-play-vocal" on:click={playVocal} data-key="Space">播放语音</button>
-                <div class="ui-selects">
-                    {#each quiz.cns as cn, index}
-                    <div class="option-item" 
-                        on:click={()=>selectIndex(index)} 
-                        data-key={index+1}
-                        data-selected={currentSelectIndex === index}>
-                        {cn}
-                    </div>
-                    {/each}
+    <QuizMiddle>
+        <h1>听读音选翻译</h1>
+        <div class="quiz-two-box">
+            <button class="ui-play-vocal" on:click={playVocal} data-key="Space">播放语音</button>
+            <div class="ui-selects">
+                {#each quiz.cns as cn, index}
+                <div class="option-item" 
+                    on:click={()=>selectIndex(index)} 
+                    data-key={index+1}
+                    data-selected={currentSelectIndex === index}>
+                    {cn}
                 </div>
+                {/each}
             </div>
         </div>
-    </div>
+    </QuizMiddle>
     <QuizFootSkipAndCheck onSkip={onSkip} onCheck={onCheck} disabledCheck={currentSelectIndex === null} />
 </div>
 {/if}
