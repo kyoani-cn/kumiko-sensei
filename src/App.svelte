@@ -4,6 +4,4 @@
 	import { routes } from "./routes.mjs";
 </script>
 
-<main>
-  <Router {routes} restoreScrollState={true} />
-</main>
+<Router {routes} restoreScrollState={true} />

@@ -1,4 +1,4 @@
-import Home from './views/Home.svelte';
+import Home from './views/home/Home.svelte';
 import Exam from './views/exam/Exam.svelte'
 import Components from './views/Components.svelte';
 
