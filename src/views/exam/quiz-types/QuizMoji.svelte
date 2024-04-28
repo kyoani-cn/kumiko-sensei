@@ -1,28 +1,23 @@
 <script>
-    import { createEventDispatcher } from "svelte";
-    import { showToast } from "../../../functions/toast.mjs";
     import { playAudioByVid } from "../../../functions/audio.mjs";
-    import QuizFoot from "./components/QuizFoot.svelte";
+    import QuizFootSkipAndCheck from "./components/QuizFootSkipAndCheck.svelte";
+    import { showQuizDualisticToast } from './functions/show-quiz-toast.mjs';
+
 
     export let quiz = null;
-
-
     export let onOver;
     export let onSkip;
 
 
     
-    const check = () => {
+    const onCheck = () => {
         if(currentSelectIndex === null) {
             alert('请选择一个答案');
             return;
         }
         const isCorrect = quiz.answer === currentSelectIndex;
     
-        showToast(
-            isCorrect ? '回答正确' : '回答错误', 
-            isCorrect ? 'success' : 'error'
-        );
+        showQuizDualisticToast(isCorrect);
         
         onOver(isCorrect);
         
@@ -53,10 +48,6 @@
             </div>
         </div>
     </div>
-    <QuizFoot>
-        <button class="ui-btn min grey" on:click={onSkip}>跳过</button>
-        <button class="ui-btn min green" on:click={check} disabled={currentSelectIndex === null} data-key="Enter">检查</button>
-        <!-- <button class="ui-btn min green" on:click={over}>over</button> -->
-    </QuizFoot>
+    <QuizFootSkipAndCheck onSkip={onSkip} onCheck={onCheck} disabledCheck={currentSelectIndex === null} />
 </div>
 {/if}

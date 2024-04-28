@@ -1,11 +1,11 @@
 <script>
-    import { createEventDispatcher } from "svelte";
     import { playAudioByVid } from "../../../functions/audio.mjs";
-    import { showToast } from "../../../functions/toast.mjs";
     import { randLength5Array } from "../../../functions/rand.function.mjs";
     import QuizFoot from "./components/QuizFoot.svelte";
-    export let quiz = null;
+    import { showQuizDualisticToast } from './functions/show-quiz-toast.mjs';
 
+
+    export let quiz = null;
     export let onOver;
     export let onSkip;
 
@@ -30,13 +30,16 @@
         if(currentSelectVocalIndex === null) return;
 
         if(currentSelectTextIndex === currentSelectVocalIndex){
-            showToast('回答正确','success');
+            showQuizDualisticToast(true)
+
             completedIndexes.push(index);
             completedIndexes = completedIndexes;
             currentSelectTextIndex = null;
             currentSelectVocalIndex = null;
         }else{
-            showToast('回答错误','error');
+            // showToast('回答错误','error');
+            showQuizDualisticToast(false);
+
             // errorIndexes.push(currentSelectVocalIndex);
             // errorIndexes = errorIndexes;
             timer = setTimeout(() => {
