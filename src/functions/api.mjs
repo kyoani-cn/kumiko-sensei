@@ -12,6 +12,10 @@ export const createExam = async ()=>{
     return exam
 }
 
+export const endExam = async (exam)=>{
+    console.log(exam);
+}
+
 
 export const getVocalURLByVid = vid=>{
     return `${BASE_VOCAL_URL}${vid}.m4a`

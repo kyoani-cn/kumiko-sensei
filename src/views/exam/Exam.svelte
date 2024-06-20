@@ -1,5 +1,5 @@
 <script>
-import { createExam } from '../../functions/api.mjs'
+import { createExam, endExam } from '../../functions/api.mjs'
 import Quiz from './Quiz.svelte';
 import { playAudioByVid, stopAudio } from '../../functions/audio.mjs'
 import ExamResult from './ExamResult.svelte';
@@ -53,6 +53,7 @@ const examOver = () => {
         ended,
         usedMs,
     });
+    endExam(exam);
 }
 
 const nextQuiz = () => {
