@@ -92,25 +92,25 @@
         <h1>匹配中文和读音</h1>
         <div class="texts-vocals-box">
             <div class="ui-selects">
-                {#each textsIndex as index, i}
-                <div class="option-item"
-                    on:click={()=>selectText(index)} 
-                    data-selected={index === currentSelectTextIndex}
-                    data-completed={completedIndexes.includes(index)}
-                    data-error={errorIndexes.includes(index)}
-                    data-key={i+1}
-                    >{vocals[index].cn}</div>
-                {/each}
-            </div>
-            <div class="ui-selects">
                 {#each vocals as vocal, index}
                 <div class="option-item"
                     on:click={()=>selectVocal(vocal,index)}
                     data-selected={index === currentSelectVocalIndex}
                     data-completed={completedIndexes.includes(index)}
                     data-error={errorIndexes.includes(index)}
-                    data-key={(index+6)%10}
+                    data-key={index+1}
                     >{vocal.jp}</div>
+                {/each}
+            </div>
+            <div class="ui-selects">
+                {#each textsIndex as index, i}
+                <div class="option-item"
+                    on:click={()=>selectText(index)} 
+                    data-selected={index === currentSelectTextIndex}
+                    data-completed={completedIndexes.includes(index)}
+                    data-error={errorIndexes.includes(index)}
+                    data-key={(i+6)%10}
+                    >{vocals[index].cn}</div>
                 {/each}
             </div>
         </div>
